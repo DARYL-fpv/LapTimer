@@ -19,7 +19,8 @@
  - Displays time elapsed in minutes, seconds an miliseconds of each lap and race stats.
  - Lap count is activated by a physical or logical switch.
  - Laps count is triggered by a logical switch (LS20: created by this script) activated by RSSI threshold.  
- **WARNING:** This script will override your Logical Switch number 20!
+  
+**WARNING:** This script will override your Logical Switch number 20!
 *TODO:* code refactoring
 *TODO:* implement widget for Horus family
 *TODO:* consider the "launch control" of BF 4.0 for the THR based timer activation process
@@ -32,6 +33,7 @@
  - Place the whole accompanying folder "*LamTmr*" within this Radio' SD Card path: */SCRIPTS/TELEMETRY/*
  - Enter to the "*Model menu*" and navigate to "*Display*" page. Assign "*Script*" to one of free screens and select "*LapTmr*".
  - From the "*Radio main menu*", long press to access all your screens and push page to navigate to LapTmr's scipt and it will run.  
+  
 **NOTE:** Do not rename any file! Name file up to 6 character will not work.
 
 
