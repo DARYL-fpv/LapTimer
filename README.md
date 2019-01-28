@@ -7,7 +7,7 @@
 # Disclaimer
  - *License:* https://www.gnu.org/licenses/gpl-3.0.en.html
  - *Author:* **DARYL fpv** (Antonello Galanti) **#milanofpv**
- - *Thanks:* My MilanoFPV's m8s for testing and RCdiy.ca for timer core code
+ - *Thanks:* MilanoFPV's m8s for testing and RCdiy.ca for timer core code
  - *Premise:* the script, and the hardware itself, introduce  uncertainty. The measure erros is more or less repeatable so the time lap trim is acceptable. To be considered as a nice tool to measure improvements on a circuit. Said that, this script is provided as not suitable for official race.
  
  
@@ -20,10 +20,10 @@
  - Lap count is activated by a physical or logical switch.
  - Laps count is triggered by a logical switch (LS20: created by this script) activated by RSSI threshold.  
   
-**WARNING:** This script will override your Logical Switch number 20!
-*TODO:* code refactoring
-*TODO:* implement widget for Horus family
-*TODO:* consider the "launch control" of BF 4.0 for the THR based timer activation process
+**WARNING:** This script will override your Logical Switch number 20!  
+*TODO:* code refactoring  
+*TODO:* implement widget for Horus family  
+*TODO:* consider the "launch control" of BF 4.0 for the THR based timer activation process  
 *TODO:* add "save log to SD" feauture
 
 
