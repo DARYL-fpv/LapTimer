@@ -18,8 +18,8 @@
  - Works with sensor: RSSI
  - Displays time elapsed in minutes, seconds an miliseconds of each lap and race stats.
  - Lap count is activated by a physical or logical switch.
- - Laps count is triggered by a logical switch (LS20: created by this script) activated by RSSI threshold.
-**WARNING:** This script will override your Logical Switch number 20!
+ - Laps count is triggered by a logical switch (LS20: created by this script) activated by RSSI threshold.  
+ **WARNING:** This script will override your Logical Switch number 20!
 *TODO:* code refactoring
 *TODO:* implement widget for Horus family
 *TODO:* consider the "launch control" of BF 4.0 for the THR based timer activation process
@@ -31,19 +31,20 @@
  - Place the file named "*LapTmr.lua*" within this Radio' SD Card path: */SCRIPTS/TELEMETRY/*
  - Place the whole accompanying folder "*LamTmr*" within this Radio' SD Card path: */SCRIPTS/TELEMETRY/*
  - Enter to the "*Model menu*" and navigate to "*Display*" page. Assign "*Script*" to one of free screens and select "*LapTmr*".
- - From the "*Radio main menu*", long press to access all your screens and push page to navigate to LapTmr's scipt and it will run.
+ - From the "*Radio main menu*", long press to access all your screens and push page to navigate to LapTmr's scipt and it will run.  
 **NOTE:** Do not rename any file! Name file up to 6 character will not work.
 
 
 # Configuration (must be edited by pilot)
 - Edit the "*LapTmp.lua*" file and set the "*ArmSwitch*" variabel as desired. You can assign it to a physical switch (*sa* to *sh*) or locigal ones (*ls1* to *ls32*).
- - Set the "*ArmSwitchOnPositio*n" variable if necessary to change the active position of the arm switch. Position U (up/away from you), D (down/towards), M (middle)
-**IMPORTANT:** When using logical switches, choose only "U" for true, "D" for false
+ - Set the "*ArmSwitchOnPositio*n" variable if necessary to change the active position of the arm switch. Position U (up/away from you), D (down/towards), M (middle).  
+ **IMPORTANT:** When using logical switches, choose only "U" for true, "D" for false
  - Configure the audio features section (you can avoid to edit if not sure)
 
 
 # Usage
-**NOTE:** The threshold value must be considered ad a circle radius and the race must be started **within and at the edge** of the RSSI's threshold area! Your starting position must be inside the RSSI threshold value and RSSI threshodl value + 4 (defined by startTollerance costant). This value can be relaxed from code. Please, read the instruction below to understand how to use the timer at the best of its potential.
+**TO KEEP IN MIND:** The threshold value must be considered ad a circle radius and the race must be started **within and at the edge** of the RSSI's threshold area! Your starting position must be inside the RSSI threshold value and RSSI threshodl value + 4 (defined by startTollerance costant). This value can be relaxed from code. Please, read the instruction below to understand how to use the timer at the best of its potential.  
+
  - For best performace, orientate the antenna as follow (or specular):
 
             .##########################(##
