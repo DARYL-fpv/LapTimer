@@ -83,7 +83,7 @@
 
  - Place your kwad at a reasonable distance on the starting line. Do not run the app yet.
  - Went to the pilot station, run the script and set the RSSI threshold just below the actual RSSI reading. **Don't move yourself from choosen position!** The timer will advise you if too close or too far.
-**NOTE:** The choosen threshold value can't be saved if bigger than the actual RSSI reading (value). This because the race must start inside the threshold area.
+  **NOTE:** The choosen threshold value can't be saved if bigger than the actual RSSI reading (value). This because the race must start inside the threshold area.
  - Arm your kwad and, as soon as you'll raise the throttle up to -98%, the timer will stats. A lap will be automatically counted when the quad will pass through the RSSI's threshold area.
  - To stop a race, disarm your quad. To allow re-arming during a race, the timer will run in background even it the kwad is disarmed.
  - To reset the timer and start a new race, long press MENU button following by OK to confirm.
