@@ -6,7 +6,7 @@
 -- | | \ \ ____) |___) |_| |_  | |____ / ____ \| |         | |   _| |_| |  | | |____| | \ \
 -- |_|  \_\_____/_____/|_____| |______/_/    \_\_|         |_|  |_____|_|  |_|______|_|  \_\
 --
---------------------- Disclaimer ---------------------------------------------------------
+-- ------------------- Disclaimer ---------------------------------------------------------
 -- License https://www.gnu.org/licenses/gpl-3.0.en.html
 -- Author: DARYL fpv (Antonello Galanti) #milanofpv
 -- Thanks: My MilanoFPV's m8s for testing and RCdiy.ca for timer core code
@@ -15,7 +15,7 @@
 --  •To be considered as a nice tool to measure improvements on a circuit.
 --  •Said that, this script is provided as not suitable for official race.
 
---------------------- Description --------------------------------------------------------
+-- ------------------- Description --------------------------------------------------------
 -- OpenTX Lua telemetry script suitable for Taranis X7 and X9 family radios
 -- Working with Taranis internal JST (2.4GHz). Long range modules not tested yet.
 -- Compatible with OpenTX Version: 2.1.8 to 2.2.3
@@ -28,7 +28,7 @@
 -- TODO: consider the launch control of BF 4.0 for the THR based timer activation process
 -- TODO: implement log save to SD
 
---------------------- Installation -------------------------------------------------------
+-- ------------------- Installation -------------------------------------------------------
 -- BEFORE START: Trim your radio channels range from -100 to 100 as good practice want!
 -- Place the lua (this file) within Radio' SD Card: /SCRIPTS/TELEMETRY/
 -- Place the whole accompanying folder "LamTmr" within Radio' SD Card: /SCRIPTS/TELEMETRY/
@@ -37,7 +37,7 @@
 -- to select the LapTmr's screen.
 -- Done!
 
---------------------- Configuration (to be edit at will) ---------------------------------
+-- ------------------- Configuration (to be edit at will) ---------------------------------
 -- Edit the LapTmp.lua and set the "ArmSwitch" variabel as desired. You can be assigned it to a
 -- physical switche (sa to sh) or locigal one (ls1 to ls32)
 -- set the "ArmSwitchOnPosition" if necessary. Position U (up/away from you), D (down/towards), M (middle)
@@ -45,9 +45,8 @@
 -- Configure the audio features (you can avoid to edit if not sure)
 -- Done!
 
---------------------- Usage --------------------------------------------------------------
+-- ------------------- Usage --------------------------------------------------------------
 -- For best performace, orientate the antenna as follow (or specular):
---
 --            .##########################(##
 --                                    .*(#%%#.
 --                                    ##%%#%@#
