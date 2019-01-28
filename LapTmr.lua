@@ -1,3 +1,12 @@
+--------------------- Disclaimer ---------------------------------------------------------
+-- RSSI based Lap Timer for racing Kwads
+-- License: https://www.gnu.org/licenses/gpl-3.0.en.html
+-- Author: DARYL fpv (Antonello Galanti) #milanofpv
+-- GitHub: https://github.com/DARYL-fpv/LapTimer
+-- Web: http://antonellogalanti.altervista.org/files/Electronics/Electronics.html and https://www.facebook.com/groups/MilanoFPV/
+-- Last update: 28/01/2019
+local version = "v1.0"
+
 --------------------- Configuration (read README.md before!) ------------------------------
 -- Set the arm switch assignment as desired. You can be assigned to physical switches (sa to sh) or locigal ones (ls1 to ls32).
 local ArmSwitch = "sa"
@@ -17,7 +26,6 @@ local AnnounceBestLap = true
 ------------------------------------------------------------------------------------------
 --------------------- AVOID EDITING BELOW HERE -------------------------------------------
 ------------------------------------------------------------------------------------------
-local version = "v.92"-- Web: https://www.facebook.com/groups/MilanoFPV/
 local LapSwitch = "ls20" -- trig the lap count by a logical switch created by this script
 local LapSwitchRecordPosition = "U"
 -- File Paths
