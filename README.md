@@ -47,6 +47,7 @@
 
 -- ------------------- Usage --------------------------------------------------------------
 -- For best performace, orientate the antenna as follow (or specular):
+--
 --            .##########################(##
 --                                    .*(#%%#.
 --                                    ##%%#%@#
@@ -83,7 +84,7 @@
 --            .....#************************//*//////////////////((#(/*
 --
 -- The threshold value must be considered ad a circle radius and the race must be started within the RSSI's threshold area!
--- The race from Threshold to Threshold + 3db (startTollerance costant)
+-- The race from Threshold to Threshold + 3db (startTollerance costant). This value can be relaxed from code.
 -- Follow the instruction to understand how to use the timer at the best of its potential.
 --
 -- 1) Place your kwad at a reasonable distance on the starting line.
