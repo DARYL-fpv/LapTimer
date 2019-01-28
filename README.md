@@ -21,10 +21,12 @@
  - Laps count is triggered by a logical switch (LS20: created by this script) activated by RSSI threshold.  
   
 **WARNING:** This script will override your Logical Switch number 20!  
-*TODO:* code refactoring  
-*TODO:* implement widget for Horus family  
-*TODO:* consider the "launch control" of BF 4.0 for the THR based timer activation process  
-*TODO:* add "save log to SD" feauture
+  
+**TODO:**
+ - code refactoring  
+ - implement widget for Horus family  
+ - consider the "launch control" of BF 4.0 for the THR based timer activation process  
+ - add "save log to SD" feauture
 
 
 # Installation
@@ -34,7 +36,7 @@
  - Enter to the "*Model menu*" and navigate to "*Display*" page. Assign "*Script*" to one of free screens and select "*LapTmr*".
  - From the "*Radio main menu*", long press to access all your screens and push page to navigate to LapTmr's scipt and it will run.  
   
-**NOTE:** Do not rename any file! Name file up to 6 character will not work.
+**NOTE:** Do not rename any file! File names up to 6 character will not be recognized by OpenTX.
 
 
 # Configuration (must be edited by pilot)
@@ -45,7 +47,9 @@
 
 
 # Usage
-**TO KEEP IN MIND:** The threshold value must be considered ad a circle radius and the race must be started **within and at the edge** of the RSSI's threshold area! Your starting position must be inside the RSSI threshold value and RSSI threshodl value + 4 (defined by startTollerance costant). This value can be relaxed from code. Please, read the instruction below to understand how to use the timer at the best of its potential.  
+**TO KEEP IN MIND:** The threshold value must be considered ad a circle radius and the race must be started **within and at the edge** of the RSSI's threshold area! Your starting position must be inside the RSSI threshold value and RSSI threshodl value + 4 (defined by startTollerance costant). This value can be relaxed from code.  
+  
+  **Please, read the instruction below to understand how to use the timer at the best of its potential.**  
 
  - For best performace, orientate the antenna as follow (or specular):
 
