@@ -50,7 +50,7 @@ local SumTime = 0
 local BestLap = 4095 -- dummy value
 local raceStarted = false
 local readyToStart = false
-local startTollerance = 5 --RSSI tollerance respect the choosen starting point
+local startTollerance = 3 --RSSI tollerance respect the choosen starting point
 -- Display
 local TextHeader = "Time"
 local TextSize = 0
