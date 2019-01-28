@@ -7,7 +7,7 @@
 -- Last update: 28/01/2019
 local version = "v1.0"
 
---------------------- Configuration (read README.md before!) ------------------------------
+--------------------- Configuration (read README.md before edit!) -------------------------
 -- Set the arm switch assignment as desired. You can be assigned to physical switches (sa to sh) or locigal ones (ls1 to ls32).
 local ArmSwitch = "sa"
 -- Position U (up/away from you), D (down/towards), M (middle)
@@ -130,7 +130,11 @@ local function configuration_func(event)
   --rssi, alarm_low, alarm_crit = getRSSI()
   if LCD_W >= 212 then
     lcd.drawText( 6, 6, "Set the RSSI threshold to trig the lap timer.", SMLSIZE + INVERS)
-    lcd.drawText( 33, 46, " ENTER TO SET ", SMLSIZE + INVERS + BLINK)
+    if threshold < rssi then
+      lcd.drawText( 33, 46, " ENTER TO SET ", SMLSIZE + INVERS)
+    else
+      lcd.drawText( 15, 46, "Threshold too high!", SMLSIZE + INVERS + BLINK)
+    end
     lcd.drawText( 8, 19, "RSSI Threshold:", TextSize)
     lcd.drawText( 128, 18, string.format("%03d",threshold), XXLSIZE)
     lcd.drawText( 197, 50, "db", SMLSIZE)
@@ -139,7 +143,11 @@ local function configuration_func(event)
   elseif LCD_W == 128 then
     lcd.drawText( 6, 6, "Set the RSSI threshold", TextSize + INVERS)
     lcd.drawText( 6, 15, "to trig the lap timer.   ", TextSize + INVERS)
-    lcd.drawText( 30, 49, " ENTER TO SET ", TextSize + INVERS + BLINK)
+    if threshold < rssi then
+      lcd.drawText( 30, 49, " ENTER TO SET ", TextSize + INVERS)
+    else
+      lcd.drawText( 15, 49, "Threshold too high!", TextSize + INVERS + BLINK)
+    end
     lcd.drawText( 8, 29, "RSSI Threshold:", TextSize)
     lcd.drawText( 92, 26, string.format("%03d",threshold), MIDSIZE)
     lcd.drawText( 113, 31, "db", SMLSIZE)
@@ -147,7 +155,7 @@ local function configuration_func(event)
     lcd.drawLine(13+threshold, 38, 13+threshold, 45, SOLID, FORCE)
   end
   if rssi ~= 0 then -- if no signal, you can't move (and save the threshold, as well)
-    if event == EVT_ENTER_BREAK or event==EVT_ROT_BREAK then
+    if (event == EVT_ENTER_BREAK or event==EVT_ROT_BREAK) and threshold<rssi then
       model.setLogicalSwitch(19, {func=3,v1=RssiChannel["id"],v2=threshold, ["delay"]=5}) -- LS20 Trig the lap counter: a>x RSSI xxdb DELAY 0.5s
       currentScreen = RACE_SCREEN
       return
@@ -476,7 +484,7 @@ local function run_func(event)
   rssi, alarm_low, alarm_crit = getRSSI()
 
   if currentScreen == SPLASH_SCREEN then
-    showSplash(250)
+    showSplash(200)
   elseif currentScreen == CONFIGURATION_SCREEN then
     configuration_func(event)
   elseif currentScreen == RACE_SCREEN then
