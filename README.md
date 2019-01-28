@@ -5,18 +5,18 @@
      | | \ \ ____) |___) |_| |_  | |____ / ____ \| |         | |   _| |_| |  | | |____| | \ \
      |_|  \_\_____/_____/|_____| |______/_/    \_\_|         |_|  |_____|_|  |_|______|_|  \_\
 # Disclaimer
-*License:* https://www.gnu.org/licenses/gpl-3.0.en.html
-*Author:* DARYL fpv (Antonello Galanti) #milanofpv
-*Thanks:* My MilanoFPV's m8s for testing and RCdiy.ca for timer core code
-*Premise:* the script, and the hardware itself, introduce  uncertainty. The measure erros is more or less repeatable so the time lap trim is acceptable. To be considered as a nice tool to measure improvements on a circuit. Said that, this script is provided as not suitable for official race.
+ - *License:* https://www.gnu.org/licenses/gpl-3.0.en.html
+ - *Author:* DARYL fpv (Antonello Galanti) #milanofpv
+ - *Thanks:* My MilanoFPV's m8s for testing and RCdiy.ca for timer core code
+ - *Premise:* the script, and the hardware itself, introduce  uncertainty. The measure erros is more or less repeatable so the time lap trim is acceptable. To be considered as a nice tool to measure improvements on a circuit. Said that, this script is provided as not suitable for official race.
 # Description
-OpenTX Lua telemetry script suitable for Taranis X7 and X9 family radios
-Working with Taranis internal JST (2.4GHz). Long range modules not tested yet.
-Compatible with OpenTX Version: 2.1.8 to 2.2.3
-Works with sensor: RSSI
-Displays time elapsed in minutes, seconds an miliseconds.
-Timer activated by a physical or logical switch.
-Laps count is triggered by a coded logical switch activated by RSSI threshold (LS20).
+ - OpenTX Lua telemetry script suitable for Taranis X7 and X9 family radios
+ - Working with Taranis internal 2.4GHz JST module (long range modules not tested yet)
+ - Compatible with OpenTX Version: 2.1.8 to 2.2.3
+ - Works with sensor: RSSI
+ - Displays time elapsed in minutes, seconds an miliseconds.
+ - Timer activated by a physical or logical switch.
+ - Laps count is triggered by a coded logical switch activated by RSSI threshold (LS20).
 **WARNING:** This script will override your Logical Switches number 20!
 *TODO:* code refactoring
 *TODO:* consider the launch control of BF 4.0 for the THR based timer activation process
@@ -29,10 +29,10 @@ Laps count is triggered by a coded logical switch activated by RSSI threshold (L
  - From the radio main menu, long press to
    access all your screens and push page to select the LapTmr's screen.
 # Configuration (must be edited)
-Edit the *LapTmp.lua* and set the "*ArmSwitch*" variabel as desired. You can be assigned it to a physical switche (*sa* to *sh*) or locigal one (*ls1* to *ls32*).
-Set the "*ArmSwitchOnPositio*n" if necessary. Position U (up/away from you), D (down/towards), M (middle)
+- Edit the *LapTmp.lua* and set the "*ArmSwitch*" variabel as desired. You can be assigned it to a physical switch (*sa* to *sh*) or locigal one (*ls1* to *ls32*).
+ - Set the "*ArmSwitchOnPositio*n" if necessary. Position U (up/away from you), D (down/towards), M (middle)
 **IMPORTANT:** When using logical switches use only "U" for true, "D" for false
-Configure the audio features (you can avoid to edit if not sure)
+ - Configure the audio features (you can avoid to edit if not sure)
 # Usage
 **NOTE:** The threshold value must be considered ad a circle radius and the race must be started within the RSSI's threshold area! The race from Threshold to Threshold + 3db (startTollerance costant). This value can be relaxed from code. Please, read the instruction below to understand how to use the timer at the best of its potential.
  - For best performace, orientate the antenna as follow (or specular):
