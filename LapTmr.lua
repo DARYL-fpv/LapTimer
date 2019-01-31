@@ -58,7 +58,7 @@ local SumTime = 0
 local BestLap = 4095 -- dummy value
 local raceStarted = false
 local readyToStart = false
-local startTollerance = 3 --RSSI tollerance respect the choosen starting point
+local startTolerance = 6 -- RSSI tolerance respect the choosen starting point
 -- Display
 local TextHeader = "Time"
 local TextSize = 0
@@ -235,14 +235,13 @@ local function race_func(event)
   local y = rowHeight
   local c = 1
 
- --rssi, alarm_low, alarm_crit = getRSSI()
   if LCD_W >= 212 then
     if rssi > 0 then
-      lcd.drawText( 45, 57, "RSSI", SMLSIZE + INVERS) --x,3
+      lcd.drawText( 45, 57, "RSSI", SMLSIZE + INVERS)
       lcd.drawGauge(65, 57, 100, 5, rssi, 100)
-      lcd.drawLine(65+threshold , 56, 65+threshold , 62, SOLID, ERASE) -- range per linea 28:128
+      lcd.drawLine(65+threshold , 56, 65+threshold , 62, SOLID, ERASE)
     else
-      lcd.drawText( 58, 57, "No signal from radio!", SMLSIZE + INVERS + BLINK) --x,3
+      lcd.drawText( 58, 57, "No signal from radio!", SMLSIZE + INVERS + BLINK)
     end
   elseif LCD_W == 128 then
     if rssi > 0 then
@@ -250,7 +249,7 @@ local function race_func(event)
       lcd.drawGauge(26, 56, 100, 6, rssi, 100) -- range per linea 29:122
       lcd.drawLine(26+threshold , 55, 26+threshold, 62, SOLID, ERASE) --126:26
     else
-      lcd.drawText( 18, 56, "No signal from radio!", SMLSIZE + INVERS + BLINK) --x,3
+      lcd.drawText( 18, 56, "No signal from radio!", SMLSIZE + INVERS + BLINK)
     end
   end
 
@@ -273,7 +272,7 @@ local function race_func(event)
   end
 
 if raceStarted == false and getSwitchPosition(ArmSwitch) == ArmSwitchOnPosition then --messages if armed but not ready
-      	if rssi>threshold and rssi<threshold+startTollerance and getValue('thr') <= -98 then
+      	if rssi>threshold and rssi<threshold+startTolerance and getValue('thr') <= -98 then
     		readyToStart = false
       		popupWarning("--READY TO START--",event)
     		--return 	
@@ -281,7 +280,7 @@ if raceStarted == false and getSwitchPosition(ArmSwitch) == ArmSwitchOnPosition 
     		readyToStart = false
     		popupWarning("Kwad too far!",event)
     		--return    		
-      	elseif rssi>=threshold+startTollerance then
+      	elseif rssi>=threshold+startTolerance then
     		readyToStart = false
     		popupWarning("Kwad too close!",event)
     		--return
@@ -316,7 +315,7 @@ local function race_summary(event)
   if (#LapTimeList-1) ~= 0 then -- there are stats to show
     if LCD_W >= 212 then
       lcd.drawPixmap(0, 0, ImageFilesPath.."summary_1_x9.bmp")
-      lcd.drawPixmap (106, 0, ImageFilesPath.."summary_2_x9.bmp") --64,0
+      lcd.drawPixmap (106, 0, ImageFilesPath.."summary_2_x9.bmp")
       lcd.drawText( 16, 14, "Total laps:", SMLSIZE)
       lcd.drawText( lcd.getLastPos()+4, 14, string.format("%02d",#LapTimeList-1), SMLSIZE)
       lcd.drawText( 16, 24, "Best lap:", SMLSIZE)
@@ -326,7 +325,6 @@ local function race_summary(event)
       lcd.drawText( 16, 44, "Model:", SMLSIZE)
       local modelInfos = model.getInfo()
       lcd.drawText( lcd.getLastPos()+4, 44, modelInfos["name"], SMLSIZE)
-      --    lcd.drawText( 19, 38, "PAGE TO COME BACK", TextSize + INVERS + BLINK) --x,3
       lcd.drawText( 78, 57, "by DARYL fpv", SMLSIZE + INVERS)
     elseif LCD_W == 128 then
       lcd.drawPixmap(0, 0, ImageFilesPath.."summary_1_x7.bmp")
@@ -340,7 +338,7 @@ local function race_summary(event)
       lcd.drawText( 14, 45, "Model:", SMLSIZE)
       local modelInfos = model.getInfo()
       lcd.drawText( lcd.getLastPos()+4, 45, modelInfos["name"], SMLSIZE)
-      lcd.drawText( 40, 57, "by DARYL fpv", SMLSIZE + INVERS) --65 48
+      lcd.drawText( 40, 57, "by DARYL fpv", SMLSIZE + INVERS)
     end
     if event == EVT_EXIT_BREAK then
       previousScreen = currentScreen
@@ -354,11 +352,11 @@ local function race_summary(event)
   else -- if there aren't stats to show
     if LCD_W >= 212 then
       lcd.drawPixmap(0, 0, ImageFilesPath.."summary_1_x9.bmp")
-      lcd.drawPixmap (106, 0, ImageFilesPath.."summary_2_x9.bmp") --64,0
+      lcd.drawPixmap (106, 0, ImageFilesPath.."summary_2_x9.bmp")
 
     elseif LCD_W == 128 then
       lcd.drawPixmap(0, 0, ImageFilesPath.."summary_1_x7.bmp")
-      lcd.drawPixmap (64, 0, ImageFilesPath.."summary_2_x7.bmp") --64,0
+      lcd.drawPixmap (64, 0, ImageFilesPath.."summary_2_x7.bmp")
     end
     popupWarning("No stats yet!", event)
     -- event managed alone to change the navigation behaviour if the popup is shown
@@ -434,7 +432,7 @@ local function bg_func()
   -- print(#LapTimeList)
   -- Start recording time
   if currentScreen ~= CONFIGURATION_SCREEN and currentScreen ~= SPLASH_SCREEN then -- doesn't start the timer if boot or config screen
-    if  getSwitchPosition(ArmSwitch) == ArmSwitchOnPosition and raceStarted == true then --spegnere timer switch quando disarmo senza resettare il timer. cambiare il logical switch di conseguenza
+    if  getSwitchPosition(ArmSwitch) == ArmSwitchOnPosition and raceStarted == true then
       -- Start  reference time
       if StartTimeMiliseconds == -1 then
         StartTimeMiliseconds = getTimeMiliSeconds()
@@ -457,7 +455,7 @@ local function bg_func()
           end
           if LapTime < BestLap then
             BestLap = LapTime
-            if AnnounceBestLap and (#LapTimeList-1) > 1 and (#LapTimeList-1) <= 16 then -- non conta il primo giro perchè sarebbe considerato best time
+            if AnnounceBestLap and (#LapTimeList-1) > 1 and (#LapTimeList-1) <= 16 then
               playFile(SoundFilesPath.."better.wav")
             end
           end
