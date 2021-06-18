@@ -7,7 +7,7 @@
      
 # Disclaimer
  - *License:* https://www.gnu.org/licenses/gpl-3.0.en.html
- - *Author:* **DARYL fpv** (Antonello Galanti) **#milanofpv**
+ - *Author:* **DARYL fpv** **#milanofpv**
  - *Thanks:* MilanoFPV's m8s for testing and RCdiy.ca for timer core code
  - *Premise:* the script, and the hardware itself, introduce  uncertainty. The measure erros is more or less repeatable so the time lap trim is acceptable. To be considered as a nice tool to measure improvements on a circuit. Said that, this script is provided as not suitable for official race.
  
